@@ -1,0 +1,17 @@
+<div class="jumbotron">
+      <div class="container">
+        <p>Put the host name or IP address to check out open ports.(Put Space to enter muti IPs and HostNames)</p>
+      </div>
+      <div class="container">
+        <form [formGroup]="questionForm"  (ngSubmit)="questionForm.valid && onSubmit()" novalidate>
+          <div class="form-group">
+            <label for="hostname">HostName</label>
+            <input  class="form-control" id="hostname" [formControl]="questionControl" placeholder="Enter hostname or IP"> 
+            <div class="alert alert-danger" *ngIf="questionControl.touched && !questionControl.valid">You must provide valid IP or Hostname.</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <i class="fa fa-spinner fa-pulse fa-spin" *ngIf="loading"></i>
+        </form>
+        
+      </div>
+</div>
